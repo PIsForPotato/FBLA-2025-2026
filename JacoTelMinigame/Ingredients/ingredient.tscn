@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsvb1yxsg8fww"]
+
+[ext_resource type="Script" uid="uid://drkqln0yo4mbh" path="res://JacoTelMinigame/Ingredients/ingredient_script.gd" id="1_pdps6"]
+[ext_resource type="Texture2D" uid="uid://w4umj8fj3hbb" path="res://icon.svg" id="1_r3fhb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pdps6"]
+size = Vector2(65, 65)
+
+[node name="Ingredient" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_pdps6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pdps6")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.488, 0.488)
+texture = ExtResource("1_r3fhb")
+
+[connection signal="area_entered" from="." to="." method="area_entered"]

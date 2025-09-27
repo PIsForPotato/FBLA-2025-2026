@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://nbwwyau4ghkw"]
+
+[ext_resource type="Texture2D" uid="uid://cvg6j2ownxs3g" path="res://Assets/Timer/TimerUnder.png" id="1_ncpfl"]
+[ext_resource type="Texture2D" uid="uid://b5ba4h0vpq675" path="res://Assets/Timer/TimerProgress.png" id="2_fc8ky"]
+
+[node name="Timer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 117.0
+offset_bottom = 117.0
+value = 50.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("1_ncpfl")
+texture_progress = ExtResource("2_fc8ky")
+tint_under = Color(0.691357, 0.691357, 0.691357, 1)
+tint_progress = Color(0.14902, 1, 0, 1)

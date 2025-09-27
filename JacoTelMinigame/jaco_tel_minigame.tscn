@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://uklxtaooblmd"]
+
+[ext_resource type="Texture2D" uid="uid://w4umj8fj3hbb" path="res://icon.svg" id="1_kql5p"]
+[ext_resource type="Script" uid="uid://cvcblbn431qen" path="res://JacoTelMinigame/Hand/jaco_tel_hand_script.gd" id="1_x2xfk"]
+[ext_resource type="PackedScene" uid="uid://dsvb1yxsg8fww" path="res://JacoTelMinigame/Ingredients/ingredient.tscn" id="3_lh6gt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2xfk"]
+size = Vector2(322, 65)
+
+[node name="JacoTel" type="Node2D"]
+
+[node name="Hand" type="Area2D" parent="."]
+script = ExtResource("1_x2xfk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
+shape = SubResource("RectangleShape2D_x2xfk")
+
+[node name="Icon" type="Sprite2D" parent="Hand"]
+scale = Vector2(2.415, 0.488)
+texture = ExtResource("1_kql5p")
+
+[node name="Ingredient" parent="." instance=ExtResource("3_lh6gt")]
+position = Vector2(150, -147)
+
+[node name="Ingredient2" parent="." instance=ExtResource("3_lh6gt")]
+position = Vector2(398, -147)
+speed = 300
+
+[node name="Ingredient3" parent="." instance=ExtResource("3_lh6gt")]
+position = Vector2(673, -147)
+speed = 600
