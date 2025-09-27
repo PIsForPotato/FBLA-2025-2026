@@ -14,3 +14,7 @@ config/name="FBLAGame"
 run/main_scene="uid://dfojovi8mv1o2"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"

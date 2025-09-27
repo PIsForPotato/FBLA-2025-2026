@@ -14,6 +14,7 @@ script = ExtResource("1_pdps6")
 shape = SubResource("RectangleShape2D_pdps6")
 
 [node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.258824, 1)
 scale = Vector2(0.488, 0.488)
 texture = ExtResource("1_r3fhb")
 

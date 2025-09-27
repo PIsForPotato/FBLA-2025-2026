@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://nbwwyau4ghkw"]
+[gd_scene load_steps=4 format=3 uid="uid://nbwwyau4ghkw"]
 
+[ext_resource type="Script" uid="uid://riuixku00rcr" path="res://General/Timer/timer_script.gd" id="1_fc8ky"]
 [ext_resource type="Texture2D" uid="uid://cvg6j2ownxs3g" path="res://Assets/Timer/TimerUnder.png" id="1_ncpfl"]
 [ext_resource type="Texture2D" uid="uid://b5ba4h0vpq675" path="res://Assets/Timer/TimerProgress.png" id="2_fc8ky"]
 
@@ -12,6 +13,7 @@ offset_right = -1152.0
 offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fc8ky")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 layout_mode = 0

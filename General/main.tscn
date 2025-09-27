@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dfojovi8mv1o2"]
 
-[ext_resource type="PackedScene" uid="uid://uklxtaooblmd" path="res://JacoTelMinigame/jaco_tel_minigame.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://uklxtaooblmd" path="res://JacoTelMinigame/0Manager/jaco_tel_minigame.tscn" id="1_ig7tw"]
 
 [node name="Node2D" type="Node2D"]
 

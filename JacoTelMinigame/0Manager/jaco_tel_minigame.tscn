@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://uklxtaooblmd"]
+
+[ext_resource type="Script" uid="uid://bb0sjfpwnevy5" path="res://JacoTelMinigame/0Manager/jaco_tel_minigame_manager.gd" id="1_2b80w"]
+[ext_resource type="Texture2D" uid="uid://w4umj8fj3hbb" path="res://icon.svg" id="1_kql5p"]
+[ext_resource type="Script" uid="uid://cvcblbn431qen" path="res://JacoTelMinigame/Hand/jaco_tel_hand_script.gd" id="1_x2xfk"]
+[ext_resource type="PackedScene" uid="uid://nbwwyau4ghkw" path="res://General/Timer/timer.tscn" id="4_kj6r1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2xfk"]
+size = Vector2(322, 65)
+
+[node name="JacoTel" type="Node2D"]
+script = ExtResource("1_2b80w")
+
+[node name="Hand" type="Area2D" parent="." groups=["player"]]
+script = ExtResource("1_x2xfk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand" groups=["player"]]
+shape = SubResource("RectangleShape2D_x2xfk")
+
+[node name="Icon" type="Sprite2D" parent="Hand"]
+scale = Vector2(2.415, 0.488)
+texture = ExtResource("1_kql5p")
+
+[node name="Timer" parent="." instance=ExtResource("4_kj6r1")]
+offset_right = 0.0
+offset_bottom = 0.0
