@@ -8,8 +8,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2xfk"]
 size = Vector2(322, 65)
 
-[node name="JacoTel" type="Node2D"]
+[node name="JacoTel" type="Node2D" node_paths=PackedStringArray("receipt", "mistake_counter")]
 script = ExtResource("1_2b80w")
+receipt = NodePath("Receipt")
+mistake_counter = NodePath("Mistakes")
 
 [node name="Hand" type="Area2D" parent="." groups=["player"]]
 script = ExtResource("1_x2xfk")
@@ -24,3 +26,20 @@ texture = ExtResource("1_kql5p")
 [node name="Timer" parent="." instance=ExtResource("4_kj6r1")]
 offset_right = 0.0
 offset_bottom = 0.0
+max_time = 10
+
+[node name="Receipt" type="RichTextLabel" parent="."]
+offset_left = 923.0
+offset_top = 19.0
+offset_right = 1132.0
+offset_bottom = 117.0
+text = "MEAT
+CHEESE
+LETTUCE"
+
+[node name="Mistakes" type="RichTextLabel" parent="."]
+offset_left = 923.0
+offset_top = 131.0
+offset_right = 1132.0
+offset_bottom = 159.0
+text = "XXX"

@@ -5,3 +5,4 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="JacoTel" parent="." instance=ExtResource("1_ig7tw")]
+ingredients_list = [["Lettuce", Color(0, 1, 0.25, 1)], ["Meat", Color(1, 0, 0.25, 1)], ["Cheese", Color(1, 1, 0.25, 1)]]
