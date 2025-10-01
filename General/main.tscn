@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfojovi8mv1o2"]
+[gd_scene load_steps=3 format=3 uid="uid://dfojovi8mv1o2"]
 
 [ext_resource type="PackedScene" uid="uid://uklxtaooblmd" path="res://JacoTelMinigame/0Manager/jaco_tel_minigame.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cu2ofsrfopvcl" path="res://Assets/Transition/Transition.tscn" id="2_eei8d"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="JacoTel" parent="." instance=ExtResource("1_ig7tw")]
-ingredients_list = [["Lettuce", Color(0, 1, 0.25, 1)], ["Meat", Color(1, 0, 0.25, 1)], ["Cheese", Color(1, 1, 0.25, 1)]]
+[node name="SceneHolder" type="Node" parent="."]
+
+[node name="JacoTel" parent="SceneHolder" instance=ExtResource("1_ig7tw")]
+
+[node name="Transition" parent="." instance=ExtResource("2_eei8d")]

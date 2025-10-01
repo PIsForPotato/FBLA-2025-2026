@@ -11,3 +11,4 @@ func begin_countdown():
 	while bar.value > 0:
 		await get_tree().create_timer(1.0).timeout
 		bar.value -= 1
+	SignalBus.emit_signal("transition", "res://JacoTelMinigame/0Manager/jaco_tel_minigame.tscn")

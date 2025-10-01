@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://cu2ofsrfopvcl"]
+
+[ext_resource type="Script" uid="uid://6rwolt0lexa0" path="res://Assets/Transition/transition_script.gd" id="1_h5j2j"]
+
+[sub_resource type="Animation" id="Animation_h5j2j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.160784, 0.337255, 0.278431, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3rqbo"]
+resource_name = "fade_in"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.160784, 0.337255, 0.278431, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mu1lg"]
+resource_name = "fade_out"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.160784, 0.337255, 0.278431, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"emit_fully_faded"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k6pt4"]
+_data = {
+&"RESET": SubResource("Animation_h5j2j"),
+&"fade_in": SubResource("Animation_3rqbo"),
+&"fade_out": SubResource("Animation_mu1lg")
+}
+
+[node name="Transition" type="CanvasLayer"]
+script = ExtResource("1_h5j2j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 200
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.160784, 0.337255, 0.278431, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_k6pt4")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="anim_finished"]

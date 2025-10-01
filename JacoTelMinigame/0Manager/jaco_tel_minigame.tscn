@@ -24,11 +24,13 @@ scale = Vector2(2.415, 0.488)
 texture = ExtResource("1_kql5p")
 
 [node name="Timer" parent="." instance=ExtResource("4_kj6r1")]
+z_index = 10
 offset_right = 0.0
 offset_bottom = 0.0
-max_time = 10
+max_time = 8
 
 [node name="Receipt" type="RichTextLabel" parent="."]
+z_index = 10
 offset_left = 923.0
 offset_top = 19.0
 offset_right = 1132.0
@@ -38,6 +40,7 @@ CHEESE
 LETTUCE"
 
 [node name="Mistakes" type="RichTextLabel" parent="."]
+z_index = 10
 offset_left = 923.0
 offset_top = 131.0
 offset_right = 1132.0

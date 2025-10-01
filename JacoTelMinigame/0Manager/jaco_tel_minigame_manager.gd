@@ -4,6 +4,7 @@ const ingredient = preload("res://JacoTelMinigame/Ingredients/ingredient.tscn")
 var seconds_elapsed = 0
 var desired_ingredients = []
 var mistakes = 0
+var prev_rand_number = -1
 
 @export var receipt: Control
 @export var mistake_counter: Control
@@ -31,7 +32,12 @@ func _process(delta: float) -> void:
 
 func spawn_ingredient(): #Spawns ingredient and randomizes stats
 	var i = ingredient.instantiate()
-	var rand_ingred = randi_range(0,ingredients_list.size()-1)
+	
+	var rand_ingred = 0
+	while prev_rand_number == rand_ingred:
+		rand_ingred = randi_range(0,ingredients_list.size()-1)
+	prev_rand_number = rand_ingred
+		
 	i.assigned_ingredient = ingredients_list[rand_ingred][0]
 	i.get_node("Icon").modulate = ingredients_list[rand_ingred][1]
 	i.position.x = randf_range(0, 1152)
@@ -45,6 +51,9 @@ func ingredient_player_collision(ingred):
 	else: 
 		mistakes += 1
 		update_mistakes()
+		if mistakes >= 3:
+			print("RES")
+			SignalBus.emit_signal("transition", "res://JacoTelMinigame/0Manager/jaco_tel_minigame.tscn")
 
 func update_receipt():
 	receipt.text = "\n".join(desired_ingredients)
