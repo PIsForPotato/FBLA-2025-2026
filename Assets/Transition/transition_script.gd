@@ -6,7 +6,7 @@ var scene: String
 
 func _ready() -> void:
 	$ColorRect.visible = false
-	SignalBus.connect("transition", Callable(self, "transition"))
+	SignalBus.transition.connect(transition)
 
 func transition(recieved_scene: String):
 	scene = recieved_scene

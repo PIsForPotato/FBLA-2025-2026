@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://enl5kmwogxm0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4l4gj"]
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[node name="WinningPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 819.0
+offset_bottom = 442.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_4l4gj")
+text = "SKILL GET! - JACOTEL
+BLANK: BLAH BLAH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rank" type="Label" parent="."]
+layout_mode = 0
+offset_left = 662.0
+offset_top = 243.0
+offset_right = 865.0
+offset_bottom = 516.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_font_sizes/font_size = 200
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1

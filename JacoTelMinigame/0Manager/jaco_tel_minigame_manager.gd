@@ -8,6 +8,7 @@ var prev_rand_number = -1
 
 @export var receipt: Control
 @export var mistake_counter: Control
+@export var timer: Control
 @export var ingredients_list = [
 	["Lettuce", Color(0, 1, 0.25, 1)], 
 	["Meat", Color(1, 0, 0.25, 1)],
@@ -25,7 +26,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	seconds_elapsed += delta
 	if seconds_elapsed >= 0.5:
-		var ingredient_amount = randi_range(1, 2)
+		var ingredient_amount = randi_range(1, 1)
 		for ingred in ingredient_amount:
 			spawn_ingredient()
 		seconds_elapsed = 0
@@ -33,7 +34,7 @@ func _process(delta: float) -> void:
 func spawn_ingredient(): #Spawns ingredient and randomizes stats
 	var i = ingredient.instantiate()
 	
-	var rand_ingred = 0
+	var rand_ingred = randi_range(0,ingredients_list.size()-1)
 	while prev_rand_number == rand_ingred:
 		rand_ingred = randi_range(0,ingredients_list.size()-1)
 	prev_rand_number = rand_ingred
@@ -48,6 +49,8 @@ func ingredient_player_collision(ingred):
 	if (desired_ingredients != []) && (ingred == desired_ingredients[0]):
 		desired_ingredients.remove_at(0)
 		update_receipt()
+		if (desired_ingredients == []):
+			timer.task_completed = true
 	else: 
 		mistakes += 1
 		update_mistakes()
