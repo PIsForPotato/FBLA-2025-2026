@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsvb1yxsg8fww"]
 
-[ext_resource type="Script" uid="uid://drkqln0yo4mbh" path="res://JacoTelMinigame/Ingredients/ingredient_script.gd" id="1_pdps6"]
+[ext_resource type="Script" uid="uid://drkqln0yo4mbh" path="res://Minigames/JacoTelMinigame/Ingredients/ingredient_script.gd" id="1_pdps6"]
 [ext_resource type="Texture2D" uid="uid://w4umj8fj3hbb" path="res://icon.svg" id="1_r3fhb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pdps6"]

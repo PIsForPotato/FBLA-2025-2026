@@ -1,18 +1,19 @@
 [gd_scene load_steps=6 format=3 uid="uid://uklxtaooblmd"]
 
-[ext_resource type="Script" uid="uid://bb0sjfpwnevy5" path="res://JacoTelMinigame/0Manager/jaco_tel_minigame_manager.gd" id="1_2b80w"]
+[ext_resource type="Script" uid="uid://bb0sjfpwnevy5" path="res://Minigames/JacoTelMinigame/0Manager/jaco_tel_minigame_manager.gd" id="1_2b80w"]
 [ext_resource type="Texture2D" uid="uid://w4umj8fj3hbb" path="res://icon.svg" id="1_kql5p"]
-[ext_resource type="Script" uid="uid://cvcblbn431qen" path="res://JacoTelMinigame/Hand/jaco_tel_hand_script.gd" id="1_x2xfk"]
+[ext_resource type="Script" uid="uid://cvcblbn431qen" path="res://Minigames/JacoTelMinigame/Hand/jaco_tel_hand_script.gd" id="1_x2xfk"]
 [ext_resource type="PackedScene" uid="uid://nbwwyau4ghkw" path="res://General/Timer/timer.tscn" id="4_kj6r1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2xfk"]
-size = Vector2(322, 65)
+size = Vector2(230, 46)
 
-[node name="JacoTel" type="Node2D" node_paths=PackedStringArray("receipt", "mistake_counter", "timer")]
+[node name="JacoTel" type="Node2D" node_paths=PackedStringArray("timer", "mistake_counter", "receipt")]
 script = ExtResource("1_2b80w")
-receipt = NodePath("Receipt")
-mistake_counter = NodePath("Mistakes")
+minigame_key = "JacoTel"
 timer = NodePath("Timer")
+mistake_counter = NodePath("Mistakes")
+receipt = NodePath("Receipt")
 
 [node name="Hand" type="Area2D" parent="." groups=["player"]]
 script = ExtResource("1_x2xfk")
@@ -24,11 +25,12 @@ shape = SubResource("RectangleShape2D_x2xfk")
 scale = Vector2(2.415, 0.488)
 texture = ExtResource("1_kql5p")
 
-[node name="Timer" parent="." instance=ExtResource("4_kj6r1")]
+[node name="Timer" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("4_kj6r1")]
 z_index = 10
 offset_right = 0.0
 offset_bottom = 0.0
 max_time = 5
+minigame = NodePath("..")
 
 [node name="Receipt" type="RichTextLabel" parent="."]
 z_index = 10

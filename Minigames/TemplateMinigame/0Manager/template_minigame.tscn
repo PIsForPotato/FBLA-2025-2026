@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfvix51pb14ig"]
+
+[ext_resource type="Script" uid="uid://bcvw1qwy41tuf" path="res://Minigames/TemplateMinigame/0Manager/template_minigame_script.gd" id="1_571xn"]
+[ext_resource type="PackedScene" uid="uid://nbwwyau4ghkw" path="res://General/Timer/timer.tscn" id="2_qobtr"]
+
+[node name="Minigame" type="Node2D"]
+script = ExtResource("1_571xn")
+
+[node name="Timer" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_qobtr")]
+z_index = 10
+offset_right = 0.0
+offset_bottom = 0.0
+max_time = 5
+minigame = NodePath("..")
+
+[node name="Mistakes" type="RichTextLabel" parent="."]
+z_index = 10
+offset_left = 923.0
+offset_top = 131.0
+offset_right = 1132.0
+offset_bottom = 159.0
+text = "XXX"

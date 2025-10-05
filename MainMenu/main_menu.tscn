@@ -10,7 +10,7 @@ offset_bottom = 138.0
 text = "Play
 "
 script = ExtResource("1_nhkf3")
-scene_path = "res://JacoTelMinigame/0Manager/jaco_tel_minigame.tscn"
+scene_path = "res://Minigames/JacoTelMinigame/0Manager/jaco_tel_minigame.tscn"
 
 [node name="Button2" type="Button" parent="."]
 offset_top = 172.0

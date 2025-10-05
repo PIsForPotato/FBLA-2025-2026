@@ -1,14 +1,17 @@
 extends Node2D
 
-const ingredient = preload("res://JacoTelMinigame/Ingredients/ingredient.tscn")
+#Universal Variables
+@export var minigame_key: String
+@export var timer: Control
+@export var mistake_counter: Control
+var mistakes = 0
+
+const ingredient = preload("res://Minigames/JacoTelMinigame/Ingredients/ingredient.tscn")
 var seconds_elapsed = 0
 var desired_ingredients = []
-var mistakes = 0
 var prev_rand_number = -1
 
 @export var receipt: Control
-@export var mistake_counter: Control
-@export var timer: Control
 @export var ingredients_list = [
 	["Lettuce", Color(0, 1, 0.25, 1)], 
 	["Meat", Color(1, 0, 0.25, 1)],
@@ -26,7 +29,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	seconds_elapsed += delta
 	if seconds_elapsed >= 0.5:
-		var ingredient_amount = randi_range(1, 1)
+		var ingredient_amount = randi_range(1, 2)
 		for ingred in ingredient_amount:
 			spawn_ingredient()
 		seconds_elapsed = 0
@@ -49,14 +52,13 @@ func ingredient_player_collision(ingred):
 	if (desired_ingredients != []) && (ingred == desired_ingredients[0]):
 		desired_ingredients.remove_at(0)
 		update_receipt()
-		if (desired_ingredients == []):
+		if (desired_ingredients == [] && !(mistakes>=3)):
 			timer.task_completed = true
 	else: 
 		mistakes += 1
 		update_mistakes()
 		if mistakes >= 3:
-			print("RES")
-			SignalBus.emit_signal("transition", "res://JacoTelMinigame/0Manager/jaco_tel_minigame.tscn")
+			SignalBus.emit_signal("transition", "res://Minigames/JacoTelMinigame/0Manager/jaco_tel_minigame.tscn")
 
 func update_receipt():
 	receipt.text = "\n".join(desired_ingredients)

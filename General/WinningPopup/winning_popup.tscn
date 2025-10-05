@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://enl5kmwogxm0"]
+[gd_scene load_steps=3 format=3 uid="uid://enl5kmwogxm0"]
+
+[ext_resource type="Script" uid="uid://dprllwhllcjuk" path="res://General/WinningPopup/winning_popup_script.gd" id="1_nq5gq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4l4gj"]
 border_width_left = 10
@@ -15,17 +17,21 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [node name="WinningPopup" type="Control"]
+z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nq5gq")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 819.0
-offset_bottom = 442.0
+offset_left = 166.0
+offset_top = 103.0
+offset_right = 985.0
+offset_bottom = 545.0
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_4l4gj")
 text = "SKILL GET! - JACOTEL
@@ -35,13 +41,38 @@ vertical_alignment = 1
 
 [node name="Rank" type="Label" parent="."]
 layout_mode = 0
-offset_left = 662.0
-offset_top = 243.0
-offset_right = 865.0
-offset_bottom = 516.0
+offset_left = 828.0
+offset_top = 346.0
+offset_right = 1031.0
+offset_bottom = 619.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 50
 theme_override_font_sizes/font_size = 200
 text = "A"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RankLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 326.0
+offset_right = 985.0
+offset_bottom = 395.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 50
+text = "Rank"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+process_mode = 2
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 166.0
+offset_top = 103.0
+offset_right = 985.0
+offset_bottom = 545.0
+mouse_filter = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

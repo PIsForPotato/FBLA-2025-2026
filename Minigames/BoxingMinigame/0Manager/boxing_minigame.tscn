@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://8iesqbqtwmul"]
+
+[ext_resource type="Script" uid="uid://doso0mmykxmfv" path="res://Minigames/BoxingMinigame/0Manager/boxing_minigame.gd" id="1_4rr3l"]
+[ext_resource type="PackedScene" uid="uid://nbwwyau4ghkw" path="res://General/Timer/timer.tscn" id="2_qobtr"]
+[ext_resource type="PackedScene" uid="uid://dfvbbfbb8wwv3" path="res://Minigames/BoxingMinigame/BoxingOpponent/boxing_opponent.tscn" id="3_v4j7x"]
+[ext_resource type="PackedScene" uid="uid://d3dv285fd8ww7" path="res://General/Camera/camera_effects.tscn" id="4_lvaif"]
+
+[node name="Boxing" type="Node2D" node_paths=PackedStringArray("timer", "mistake_counter")]
+script = ExtResource("1_4rr3l")
+minigame_key = "Boxing"
+timer = NodePath("Timer")
+mistake_counter = NodePath("Mistakes")
+
+[node name="Timer" parent="." node_paths=PackedStringArray("minigame") instance=ExtResource("2_qobtr")]
+z_index = 10
+offset_right = 0.0
+offset_bottom = 0.0
+max_time = 5
+minigame = NodePath("..")
+
+[node name="Mistakes" type="RichTextLabel" parent="."]
+z_index = 10
+offset_left = 923.0
+offset_top = 131.0
+offset_right = 1132.0
+offset_bottom = 159.0
+text = "XXX"
+
+[node name="BoxingOpponent" parent="." instance=ExtResource("3_v4j7x")]
+position = Vector2(582, 303)
+scale = Vector2(5, 5)
+
+[node name="CameraEffects" parent="." instance=ExtResource("4_lvaif")]

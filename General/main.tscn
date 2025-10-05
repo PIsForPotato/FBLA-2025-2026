@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bxiou6nyvq80p" path="res://MainMenu/main_menu.tscn" id="1_eei8d"]
 [ext_resource type="PackedScene" uid="uid://cu2ofsrfopvcl" path="res://Assets/Transition/Transition.tscn" id="2_eei8d"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
 
 [node name="SceneHolder" type="Node" parent="."]
 
